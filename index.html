@@ -4,63 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UniPulse: A Comprehensive Campus Ecosystem Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>UniPulse: A Comprehensive Campus Ecosystem Platform</h1>
-        <p class="pitch">A mobile-first solution designed to solve information fragmentation and streamline communication for students, faculty, and administrators at Aligarh Muslim University.</p>
-    </header>
-
-    <main>
-        <section id="features">
-            <h2>Key Features</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h3>Role-Based Dashboards</h3>
-                    <p>Tailored interfaces for students and faculty, ensuring the right content is delivered to the right people efficiently.</p>
+    <div class="container">
+        <header class="hero">
+            <h1 class="hero-title">UniPulse</h1>
+            <p class="hero-subtitle">A mobile-first solution designed to solve information fragmentation and streamline campus communication.</p>
+            <a href="https://github.com/danish097dev/unipulse-landing-page" target="_blank" class="hero-cta">View on GitHub</a>
+        </header>
+    
+        <main>
+            <section id="features" class="reveal">
+                <h2 class="section-title">Key Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Role-Based Dashboards</h3>
+                        <p>Tailored interfaces for students and faculty, ensuring the right content is delivered to the right people efficiently.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Offline-First Architecture</h3>
+                        <p>Guarantees uninterrupted access to critical academic information and app features, regardless of network connectivity.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>AI-Powered Assistance</h3>
+                        <p>An integrated "Ask AI" feature using Google Gemini provides intelligent content assistance and personalized knowledge management.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>FeedUp Microapp</h3>
+                        <p>An innovative content aggregation module that serves as a strategic user acquisition channel by providing value to the broader tech community.</p>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <h3>Offline-First Architecture</h3>
-                    <p>Guarantees uninterrupted access to critical academic information and app features, even without a network connection.</p>
+            </section>
+    
+            <section id="screenshots" class="reveal">
+                <h2 class="section-title">Screenshots</h2>
+                <div class="screenshots-grid">
+                    <!-- Make sure your image files are in an 'images' folder and named correctly -->
+                    <img src="images/login.jpg" alt="Login Page Screenshot">
+                    <img src="images/dashboard.jpg" alt="Faculty Dashboard Screenshot">
+                    <img src="images/bookmarks.jpg" alt="Bookmarks Page Screenshot">
+                    <img src="images/conferences.jpg" alt="CS Hub Page Screenshot">
                 </div>
-                <div class="feature-card">
-                    <h3>AI-Powered Assistance</h3>
-                    <p>An integrated "Ask AI" feature using Google Gemini provides intelligent content assistance and personalized knowledge management.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>FeedUp Microapp</h3>
-                    <p>An innovative content aggregation module that serves as a strategic user acquisition channel by providing value to the broader tech community.</p>
-                </div>
-            </div>
-        </section>
+            </section>
+    
+            <section id="tech-stack" class="reveal">
+                <h2 class="section-title">Technology Stack</h2>
+                <ul class="tech-list">
+                    <li>Flutter</li>
+                    <li>Django REST Framework</li>
+                    <li>PostgreSQL</li>
+                    <li>Supabase</li>
+                    <li>Google Gemini API</li>
+                    <li>JWT & OTP Authentication</li>
+                </ul>
+            </section>
+        </main>
+    
+        <footer>
+            <p>Developed by Mohd Danish</p>
+            <a href="https://github.com/Danish097Dev/unipulse-landing-page" target="_blank">GitHub Repository</a>
+        </footer>
+    </div>
 
-        <section id="screenshots">
-            <h2>Screenshots</h2>
-            <div class="screenshots-grid">
-                <img src="images/login.jpg" alt="Login Page">
-                <img src="images/dashboard.jpg" alt="Faculty Dashboard">
-                <img src="images/bookmarks.jpg" alt="Bookmarks Page">
-                <img src="images/conferences.jpg" alt="Conferences Page">
-            </div>
-        </section>
+    <script>
+        // JavaScript for fade-in-on-scroll animation
+        const revealElements = document.querySelectorAll('.reveal');
 
-        <section id="tech-stack">
-            <h2>Technology Stack</h2>
-            <ul>
-                <li><strong>Frontend:</strong> Flutter</li>
-                <li><strong>Backend:</strong> Django REST Framework</li>
-                <li><strong>Database:</strong> PostgreSQL</li>
-                <li><strong>Cloud & Storage:</strong> Supabase</li>
-                <li><strong>AI Integration:</strong> Google Gemini API</li>
-                <li><strong>Authentication:</strong> JWT & OTP Flow</li>
-            </ul>
-        </section>
-    </main>
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15, // Trigger when 15% of the element is visible
+        });
 
-    <footer>
-        <p>Developed by Mohd Danish. This project was submitted as a dissertation to the Department of Computer Science, AMU.</p>
-        <a href="https://github.com/danish097dev/unipulse-landing-page" target="_blank">View Project on GitHub</a>
-    </footer>
+        revealElements.forEach(element => {
+            revealObserver.observe(element);
+        });
+    </script>
 </body>
 </html>
